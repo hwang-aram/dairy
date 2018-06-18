@@ -7,9 +7,30 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 </head>
 <body>
-	<h1>hello dairy</h1>
+	<#include "/include/nav.html"/>
+	<div class="container">
+		<#list dairyList as dairy>
+		<div class="row">
+			<div
+				class="well col-sm-8 <#if dairy_index%2==1> col-sm-offset-4 text-right </#if>">
+				<h4>${dairy.title}</h4>
+				<h5>
+					Post by ${dairy.u_id},
+					<sapn class="glyphicon glyphicon-time"></sapn>
+					${dairy.regdate?substring(0,19)}
+				</h5>
+				<h5>
+					<span class="label label-primary">맑음</span> <span
+						class="label label-success">휴식</span>
+				</h5>
+				<br />
+				<p>${dairy.content}</p>
+			</div>
+		</div>
+		</#list>
+	</div>
 
-<!--script libary-->
+	<!--script libary-->
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </body>
