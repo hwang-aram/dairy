@@ -4,16 +4,37 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Welcome</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<style>
+.plus {
+	color: black;
+	font-size: 30px;
+	padding-top: 20px;
+}
+</style>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 </head>
 <body>
 	<#include "/include/nav.html"/>
+
+
 	<div class="container">
+		<div class="row text-right">
+			<a href="/dairy/add"> <span
+				class="glyphicon glyphicon-plus-sign plus"></span>
+			</a>
+		</div>
+		<#if !dairyList?hasContent>
+			<div class="row text-center">
+				<h4>첫번째 일기를 작성해보세요:)</h4>
+			</div>
+		</#if>
 		<#list dairyList as dairy>
+
 		<div class="row">
 			<div
 				class="well col-sm-8 <#if dairy_index%2==1> col-sm-offset-4 text-right </#if>">
-				<h4>${dairy.title}</h4>
+				<h4>${dairy.title?default('제목없음')}</h4>
 				<h5>
 					Post by ${dairy.u_id},
 					<sapn class="glyphicon glyphicon-time"></sapn>
@@ -31,7 +52,8 @@
 	</div>
 
 	<!--script libary-->
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </body>
 </html>

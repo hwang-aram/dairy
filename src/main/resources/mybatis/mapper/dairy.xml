@@ -4,8 +4,11 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="dairy">
 	    <select id="list" resultType="dairy">
-	    	select * from dairy
+	    	select * from dairy order by regdate desc
 	    </select>
+	    <insert id="add" parameterType="dairy">
+	    	insert into dairy values(seq_dairy_id.nextval, 'test', #{title}, #{content}, sysdate)
+	    </insert>
 </mapper>
 
 

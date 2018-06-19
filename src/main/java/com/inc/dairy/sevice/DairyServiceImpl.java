@@ -20,6 +20,12 @@ public class DairyServiceImpl implements DairyService {
 		return dairyDao.list();
 	}
 
+	@Override
+	public void add(Dairy dairy) {
+		dairyDao.add(dairy);
+		
+	}
+
 	
 
 }

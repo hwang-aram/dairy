@@ -16,5 +16,9 @@ public class DairyDao {
 	public List<Dairy> list(){
 		return sqlSession.selectList("dairy.list");
 	}
+
+	public void add(Dairy dairy) {
+		sqlSession.insert("dairy.add", dairy);
+	}
 	
 }
